@@ -78,3 +78,36 @@ temp/
 # *.json
 # data/
 # datasets/
+
+# Images - ignore common raster/vector image formats
+*.png
+*.jpg
+*.jpeg
+*.bmp
+*.tif
+*.tiff
+*.gif
+*.webp
+*.ico
+
+# Thumbnails / previews
+*_thumb.*
+thumb_*
+
+# Optionally ignore any images folders
+images/
+**/images/
+
+# Documentation and licenses
+README
+README.*
+README.md
+README_*
+LICENSE
+LICENSE.*
+LICENCE
+
+# Saved kernels and generated numpy weights
+saved_kernels/
+saved_kernels/**
+*.npy
