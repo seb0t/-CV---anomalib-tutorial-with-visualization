@@ -1,3 +1,42 @@
+# Guida all'installazione di PyTorch (CPU/GPU)
+
+Per garantire la massima compatibilità su Windows (con o senza GPU) e su Mac, il file `requirements.txt` specifica solo la versione minima di torch/torchvision. Tuttavia, per sfruttare la GPU su Windows/Linux, è necessario installare manualmente la versione corretta di PyTorch.
+
+## 1. Installazione base (CPU-only, compatibile ovunque)
+
+```bash
+pip install -r requirements.txt
+```
+
+## 2. Installazione PyTorch con supporto GPU (CUDA) su Windows/Linux
+
+Se hai una scheda NVIDIA e vuoi usare la GPU:
+
+1. Vai su https://pytorch.org/get-started/locally/ e scegli la configurazione adatta alla tua versione di CUDA e Python.
+2. Oppure usa direttamente (per CUDA 12.x):
+
+```bash
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+```
+
+3. Dopo l'installazione, verifica che la GPU sia visibile:
+
+```bash
+python -c "import torch; print(torch.cuda.is_available()); print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'No GPU')"
+```
+
+## 3. Mac (CPU o Apple Silicon/MPS)
+
+Su Mac Intel: la versione CPU-only va bene.
+
+Su Mac M1/M2: puoi usare la versione base oppure seguire le istruzioni ufficiali per abilitare il backend MPS:
+https://pytorch.org/docs/stable/notes/mps.html
+
+## 4. Note
+- Se aggiorni la versione di torch, assicurati che sia compatibile con anomalib e torchvision.
+- Se usi Jupyter/Notebook, riavvia il kernel dopo aver cambiato la versione di torch.
+
+---
 # 🔬 PatchCore Educational Platform
 ### *Comprensione pratica degli algoritmi di Anomaly Detection*
 
